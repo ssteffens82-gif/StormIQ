@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const recentInvestigations = [
   {
     property: "123 Main Street",
@@ -55,21 +57,28 @@ export default function Home() {
         </div>
 
         <div className="mt-10 grid w-full max-w-3xl gap-5 sm:grid-cols-2">
-          <button className="group rounded-2xl border border-sky-400/70 bg-slate-950/55 p-8 text-left shadow-[0_0_35px_rgba(14,165,233,0.18)] backdrop-blur transition hover:bg-sky-950/50">
+          <Link
+            href="/investigate"
+            className="group rounded-2xl border border-sky-400/70 bg-slate-950/55 p-8 text-left shadow-[0_0_35px_rgba(14,165,233,0.18)] backdrop-blur transition hover:bg-sky-950/50"
+          >
             <div className="text-4xl text-sky-400 transition group-hover:scale-110">
               ⚡
             </div>
+
             <h2 className="mt-5 text-2xl font-bold">Start Investigation</h2>
+
             <p className="mt-2 text-sm leading-6 text-slate-300">
               Begin a new property investigation.
             </p>
-          </button>
+          </Link>
 
           <button className="group rounded-2xl border border-slate-600/80 bg-slate-950/45 p-8 text-left backdrop-blur transition hover:border-sky-400/70 hover:bg-slate-900/70">
             <div className="text-4xl text-sky-400 transition group-hover:scale-110">
               📂
             </div>
+
             <h2 className="mt-5 text-2xl font-bold">Continue Investigation</h2>
+
             <p className="mt-2 text-sm leading-6 text-slate-300">
               Open an existing investigation.
             </p>
@@ -79,6 +88,7 @@ export default function Home() {
         <div className="mt-10 w-full max-w-5xl rounded-2xl border border-slate-700/70 bg-slate-950/55 p-5 backdrop-blur">
           <div className="mb-4 flex items-center justify-between">
             <h3 className="text-lg font-bold">Recent Investigations</h3>
+
             <button className="text-sm font-semibold text-sky-400">
               View All →
             </button>
