@@ -1,3 +1,4 @@
+import type { CandidateStormEvent } from "@/types/weather";
 export type InvestigationSource =
   | "manual"
   | "companycam"
@@ -12,7 +13,10 @@ export type InvestigationStatus =
   | "completed";
 
 export interface Investigation {
-  id: string;
+  
+  candidateStorms?: CandidateStormEvent[];
+  
+    id: string;
 
   source: InvestigationSource;
 

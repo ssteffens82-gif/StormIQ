@@ -105,14 +105,34 @@ export function NewInvestigationForm() {
       </button>
 
       {investigation && (
-        <div className="mt-8 rounded-xl border border-sky-500/40 bg-slate-950 p-5">
-          <h3 className="font-bold text-sky-400">Investigation Created</h3>
-          <p className="mt-3 text-slate-300">{investigation.formattedAddress}</p>
-          <p className="mt-2 text-sm text-slate-400">
-            Lat/Lon: {investigation.latitude}, {investigation.longitude}
-          </p>
+  <div className="mt-8 rounded-xl border border-sky-500/40 bg-slate-950 p-5">
+    <h3 className="font-bold text-sky-400">✓ Property Located</h3>
+
+    <p className="mt-3 text-slate-300">
+      {investigation.formattedAddress}
+    </p>
+
+    {investigation.candidateStorms?.length ? (
+      <div className="mt-6">
+        <h4 className="font-bold text-sky-400">Candidate Storms</h4>
+
+        <div className="mt-3 space-y-3">
+          {investigation.candidateStorms.map((storm) => (
+            <div
+              key={storm.id}
+              className="rounded-lg border border-slate-800 bg-slate-900 p-4"
+            >
+              <p className="font-semibold">{storm.title}</p>
+              <p className="mt-1 text-sm text-slate-400">
+                {storm.date} · {storm.summary}
+              </p>
+            </div>
+          ))}
         </div>
-      )}
+      </div>
+    ) : null}
+  </div>
+)}
     </form>
   );
 }
